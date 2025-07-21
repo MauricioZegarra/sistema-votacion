@@ -2,10 +2,10 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: msvc-combined
   config:
     import: optional:configserver:http://localhost:8888
-  application:
-    name: msvc-gateway
   security:
     oauth2:
       resourceserver:
@@ -40,3 +40,7 @@ jwt:
     converter:
       resource-id: spring-client-api-rest
       principle-attribute: preferred_username
+
+mail:
+  service:
+    url: http://localhost:8082/mail/sendMessage
