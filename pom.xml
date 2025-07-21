@@ -12,11 +12,11 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.microservice.eureka</groupId>
-    <artifactId>microservice-eureka</artifactId>
+    <groupId>com.microservice.config</groupId>
+    <artifactId>microservice-config</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>microservice-eureka</name>
-    <description>microservice-eureka</description>
+    <name>microservice-config</name>
+    <description>microservice-config</description>
 
     <properties>
         <java.version>17</java.version>
@@ -24,7 +24,13 @@
     </properties>
 
     <dependencies>
-        <!-- Core -->
+        <!-- Config Server -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+
+        <!-- Actuator and Autoconfigure (de Eureka) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -34,11 +40,7 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
 
-        <!-- Config & Eureka -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
+        <!-- Eureka Server (si deseas que el config también registre servicios o sea parte del discovery) -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
